@@ -1,0 +1,25 @@
+name: matrix
+
+on: 
+  push:
+    branches:
+      - master
+
+
+jobs:
+  node-version:
+    strategy:
+    #  fail-fast: true
+      matrix:
+        os: [macos-latest, windows-latest]
+        node-version: [6, 8, 7]
+    #  max-parallel: 2
+    runs-on: ubuntu-latest
+    steps:
+      - name: Log node version
+        run: node -v
+      - uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node_version }}
+      - name: Log node version
+        run: node -v
