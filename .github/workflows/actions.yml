@@ -7,8 +7,8 @@ jobs:
     steps:
       - name: demo action access input
         id: greet
-        uses: actions/hello-world-javascript-actions@v1
+        uses: actions/hello-world-javascript-action@v1
         with:
-          who-to-greet: Nival
+          who-to-greet: Niva
       - name: Access output
         run: echo "${{ steps.greet.outputs.time }}"
