@@ -1,15 +1,17 @@
 name: Actions workflow
-on: [push]
+on: [push, pull_request]
 jobs:
   run-github-actions-repo:
     runs-on: ubuntu-latest
 
     steps:
-      - name: list files
+      - name: list files with our code
         run: |
           pwd
           ls -a
-      - name: Checkout
+          # git clone git@github:$GITHUB_REPOSITORY
+          # git checkout $GITHUB_SHA
+      - name: Checkout list files
         uses: actions/checkout@v1
       - name:  List files after
         run: |
